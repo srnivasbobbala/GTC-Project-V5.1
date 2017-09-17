@@ -8,21 +8,19 @@ using System.Web;
 
 namespace GTC.Models
 {
-    public class GetQuestionGroups
+    public class QuestionDBModel
     {
-
         private SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["GTCDB"].ConnectionString);
-        Response response = new Response();
 
-        public IList<QuestionGroupModel> GetGroups()
+        public Response GetGroups()
         {
             IList<QuestionGroupModel> questionGroupModelList = new List<QuestionGroupModel>();
+            Response response = new Response();
             try
             {
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "SP_GetQuestionGroup";
-
 
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -32,28 +30,21 @@ namespace GTC.Models
                     {
                         QuestionGroupId = int.Parse(reader["ID"].ToString()),
                         QuestionGroupName = reader["QuestionGroupName"].ToString()
+                    });
                 }
-                   
-                );
-                    
+                response.ResponseId = 1;
+                if (questionGroupModelList.Count > 0)
+                    response.ResponseMessage = "Found Question Groups";
+                else
+                    response.ResponseMessage = "No Question Groups Found";
+                response.Result = questionGroupModelList;
             }
-
-                return questionGroupModelList;
-        }
             catch (Exception ex)
             {
-                Console.WriteLine("{0} Exception caught.", ex);
-                return questionGroupModelList;
+                response.ResponseId = 0;
+                response.ResponseMessage = ex.Message;
             }
-
-            finally
-            {
-                conn.Close();
-            }
-
+            return response;
         }
-
-
-
     }
 }
