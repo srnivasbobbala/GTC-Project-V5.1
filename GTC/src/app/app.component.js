@@ -13,7 +13,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: "my-app",
-            templateUrl: 'app/Home.html'
+            template: "<list-group> </list-group>"
         })
     ], AppComponent);
     return AppComponent;

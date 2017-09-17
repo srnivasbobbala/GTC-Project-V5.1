@@ -2,7 +2,7 @@
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class QuestionGroupService {
@@ -12,9 +12,16 @@ export class QuestionGroupService {
     }
 
     getQuestionGroupList(): Observable<any> {
-        return this._http.get("http://localhost:1934/api/GTC/GetGroup")
-            .map((response: Response) => <any>response.json());
+        return this._http.get("http://localhost:1934/api/Question/Group")
+            .map((response: Response) => { <any>response.json(); console.log(response.json()); })
+            .catch(this.handleError)
 
     }
+    handleError(error:Response) {
+
+        console.log(error);
+        return Observable.throw(error);
+    }
+
 
 }

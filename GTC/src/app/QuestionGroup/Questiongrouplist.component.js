@@ -25,8 +25,8 @@ var QuestionGroupListComponent = (function () {
     };
     QuestionGroupListComponent = __decorate([
         core_1.Component({
-            selector: '<list-employee>',
-            templateUrl: './QuestionGroup/Questiongrouplist.component.html'
+            selector: '<list-group>',
+            templateUrl: './Questiongrouplist.component.html'
         }),
         __metadata("design:paramtypes", [QuestionGroupService_1.QuestionGroupService])
     ], QuestionGroupListComponent);

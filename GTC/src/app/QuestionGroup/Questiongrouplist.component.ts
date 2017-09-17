@@ -2,10 +2,8 @@
 import { QuestionGroupService } from './QuestionGroupService';
 @Component({
 
-    selector: '<list-employee>',
-    templateUrl: './QuestionGroup/Questiongrouplist.component.html'
-
-
+    selector: '<list-group>',
+    templateUrl: './Questiongrouplist.component.html'
 
 })
 
@@ -25,7 +23,6 @@ export class QuestionGroupListComponent implements OnInit {
                 this.statusMessage = "problem with service please try again after some time";
                 console.log(this.statusMessage);
             });
-
     }
 
 
