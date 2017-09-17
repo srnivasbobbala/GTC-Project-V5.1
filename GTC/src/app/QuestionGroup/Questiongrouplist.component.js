@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var QuestionGroupService_1 = require("./QuestionGroupService");
-var QuestionGroupListComponent = (function () {
+var QuestionGroupListComponent = /** @class */ (function () {
     function QuestionGroupListComponent(_quetionGroupService) {
         this._quetionGroupService = _quetionGroupService;
         this.statusMessage = "Loading Data";
