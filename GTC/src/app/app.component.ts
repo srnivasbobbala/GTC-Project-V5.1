@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 
 @Component({
     selector: "my-app",
-    templateUrl: 'app/Home.html'
+    template: `<list-group> </list-group>`
 
 })
 export class AppComponent {
