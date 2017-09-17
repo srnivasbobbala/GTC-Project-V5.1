@@ -20,13 +20,15 @@
         <img src="../../../Content/Images/add-goal.svg" />
         <p>Add information</p>
     </div>-->
-    <!--<h1>{{questionGroupList.ResponseId}}</h1>-->
+  
+  <!--<h1>{{questionGroupList.ResponseMessage}}</h1>-->
 
-    <!--<ul>
-    <li *ngFor="let group of questionGroupList">
-        <div class="contentdiv">group.Result</div>
+    <ul *ngIf="questionGroupList">
+       <!-- <li>{{questionGroupList.ResponseMessage}}</li>-->
+    <li *ngFor="let group of questionGroupList.Result">
+        <div class="contentdiv">{{group.QuestionGroupName}}</div>
     </li>
-    </ul>-->
+    </ul>
 
 </body>
 </html>

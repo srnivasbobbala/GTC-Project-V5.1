@@ -18,7 +18,7 @@ var QuestionGroupListComponent = (function () {
     }
     QuestionGroupListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this._quetionGroupService.getQuestionGroupList().subscribe(function (quegrpList) { return _this.questionGroupList = quegrpList; }, function (error) {
+        this._quetionGroupService.getQuestionGroupList().subscribe(function (quegrpList) { _this.questionGroupList = quegrpList, console.log(_this.questionGroupList.Result); }, function (error) {
             _this.statusMessage = "problem with service please try again after some time";
             console.log(_this.statusMessage);
         });

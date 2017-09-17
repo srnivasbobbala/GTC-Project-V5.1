@@ -20,7 +20,7 @@ var QuestionGroupService = (function () {
     }
     QuestionGroupService.prototype.getQuestionGroupList = function () {
         return this._http.get("http://localhost:1934/api/Question/Group")
-            .map(function (response) { response.json(); console.log(response.json()); })
+            .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
     QuestionGroupService.prototype.handleError = function (error) {
