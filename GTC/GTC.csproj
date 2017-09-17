@@ -132,24 +132,100 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Images\add-goal.svg" />
+    <Content Include="Content\Images\briefcase.svg" />
+    <Content Include="Content\Images\close-black.svg" />
+    <Content Include="Content\Images\close-circle.svg" />
+    <Content Include="Content\Images\close.svg" />
+    <Content Include="Content\Images\cog.svg" />
+    <Content Include="Content\Images\contact-book.svg" />
+    <Content Include="Content\Images\delete-icon-white.svg" />
+    <Content Include="Content\Images\delete-icon.svg" />
+    <Content Include="Content\Images\download.svg" />
+    <Content Include="Content\Images\e-mail.svg" />
+    <Content Include="Content\Images\edit-icon-white.svg" />
+    <Content Include="Content\Images\edit-icon.svg" />
+    <Content Include="Content\Images\edit.svg" />
+    <Content Include="Content\Images\exclimation.svg" />
+    <Content Include="Content\Images\eye.svg" />
+    <Content Include="Content\Images\financial-info.svg" />
+    <Content Include="Content\Images\fund-book.svg" />
+    <Content Include="Content\Images\game--dark.svg" />
+    <Content Include="Content\Images\game.svg" />
+    <Content Include="Content\Images\gauge.svg" />
+    <Content Include="Content\Images\graph.svg" />
+    <Content Include="Content\Images\GTC-arrows-white.svg" />
+    <Content Include="Content\Images\GTC-arrows.svg" />
+    <Content Include="Content\Images\GTC_logo_BIG2%402X.png" />
+    <Content Include="Content\Images\info-icon.svg" />
+    <Content Include="Content\Images\James.jpg" />
+    <Content Include="Content\Images\lifeboard-graph-bg.svg" />
+    <Content Include="Content\Images\line-bg.png" />
+    <Content Include="Content\Images\line.svg" />
+    <Content Include="Content\Images\margaret.jpg" />
+    <Content Include="Content\Images\minus-icon.svg" />
+    <Content Include="Content\Images\money.svg" />
+    <Content Include="Content\Images\move-icon.svg" />
+    <Content Include="Content\Images\order-1-icon.svg" />
+    <Content Include="Content\Images\order-2-icon.svg" />
+    <Content Include="Content\Images\order-3-icon.svg" />
+    <Content Include="Content\Images\pin.svg" />
+    <Content Include="Content\Images\plus-circle.svg" />
+    <Content Include="Content\Images\plus-icon.svg" />
+    <Content Include="Content\Images\plus.svg" />
+    <Content Include="Content\Images\profile.svg" />
+    <Content Include="Content\Images\risk-and-insurance.svg" />
+    <Content Include="Content\Images\sample-graph-goal.jpg" />
+    <Content Include="Content\Images\scenario-icon.svg" />
+    <Content Include="Content\Images\Search.svg" />
+    <Content Include="Content\Images\status-light-green.svg" />
+    <Content Include="Content\Images\status-light-grey.svg" />
+    <Content Include="Content\Images\status-light-orange.svg" />
+    <Content Include="Content\Images\status-light.svg" />
+    <Content Include="Content\Images\user.svg" />
+    <Content Include="Content\Images\wellness--dark.svg" />
+    <Content Include="Content\Images\wellness.svg" />
+    <Content Include="Content\Images\wrenches.svg" />
+    <Content Include="Content\Script\bootstrap.min.js" />
+    <Content Include="Content\Script\custom.js" />
+    <Content Include="Content\Script\highcharts.js" />
+    <Content Include="Content\Script\jquery-3.2.1.min.js" />
+    <Content Include="Content\Script\jquery.multilevelpushmenu.min.js" />
+    <Content Include="Content\Script\nouislider.min.js" />
+    <Content Include="Content\Script\selectize.min.js" />
+    <Content Include="Content\Script\simplebar.js" />
+    <Content Include="Content\Styles\bootstrap.min.css" />
+    <Content Include="Content\Styles\custom.css" />
+    <Content Include="Content\Styles\nouislider.min.css" />
+    <Content Include="Content\Styles\selectize.default.css" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="src\app\app.component.html" />
+    <Content Include="src\app\Home.html" />
     <Content Include="src\favicon.ico" />
     <Content Include="src\index.html" />
     <Content Include="src\styles.css" />
     <Content Include="src\systemjs-angular-loader.js" />
     <Content Include="src\systemjs.config.extras.js" />
     <Content Include="src\systemjs.config.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\GTCController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\GetQuestionGroups.cs" />
+    <Compile Include="Models\QuestionGroupModel.cs" />
+    <Compile Include="Models\QuestionMaster.cs" />
+    <Compile Include="Models\Response.cs" />
+    <Compile Include="Models\TableNameModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +238,13 @@
     <Content Include="tslint.json" />
     <Content Include="package.json" />
     <Content Include="src\tsconfig.json" />
+    <Content Include="Content\Fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\Styles\bootstrap.min.css.map" />
+    <Content Include="Content\data\graphexample.csv" />
+    <Content Include="Content\data\totalwealth.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -171,8 +254,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\app\app.component.spec.ts" />

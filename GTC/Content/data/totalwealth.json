@@ -1,0 +1,29 @@
+{
+  "totalWealth": "23.2 million",
+  "stats": [{
+      "y": 50,
+      "name": "Living Annuity",
+      "target": "living-annuity"
+    },
+    {
+      "y": 20,
+      "name": "Endowment",
+      "target": "endowment"
+    },
+    {
+      "y": 15,
+      "name": "Unit Trust",
+      "target": "unit-trust"
+    },
+    {
+      "y": 10,
+      "name": "Retirement",
+      "target": "retirement"
+    },
+    {
+      "y": 5,
+      "name": "Annuity",
+      "target": "annuity"
+    }
+  ]
+}
