@@ -5,13 +5,10 @@ using System.Web;
 
 namespace GTC.Models
 {
-    public class TableNameModel
+    public class QuestionMasterModel
     {
+        public int Id { get; set; }
 
-        public int TableNameId { get; set; }
-
-        public string TableName { get; set; }
-
-
+        public string Title { get; set; }
     }
 }

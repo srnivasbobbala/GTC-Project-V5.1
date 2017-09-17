@@ -14,9 +14,25 @@ namespace GTC.Controllers.api
 
         [HttpGet]
         [Route("api/Question/Group")]
-        public IHttpActionResult Get()
+        public IHttpActionResult Group()
         {
             return Ok(db.GetGroups());
         }
+
+        [HttpGet]
+        [Route("api/Question/Group")]
+        public IHttpActionResult Group(int id)
+        {
+            return Ok(db.GetGroupById(id));
+        }
+
+        [HttpGet]
+        [Route("api/Question/QuestionByGroup")]
+        public IHttpActionResult QuestionByGroup(int groupId)
+        {
+            return Ok(db.GetGroupById(groupId));
+        }
+
+
     }
 }
