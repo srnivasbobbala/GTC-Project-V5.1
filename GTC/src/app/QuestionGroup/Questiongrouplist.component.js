@@ -11,14 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var QuestionGroupService_1 = require("./QuestionGroupService");
-var QuestionGroupListComponent = /** @class */ (function () {
+var QuestionGroupListComponent = (function () {
     function QuestionGroupListComponent(_quetionGroupService) {
         this._quetionGroupService = _quetionGroupService;
+        this.groupCategory = "";
         this.statusMessage = "Loading Data";
     }
     QuestionGroupListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._quetionGroupService.getQuestionGroupList().subscribe(function (quegrpList) { _this.questionGroupList = quegrpList, console.log(_this.questionGroupList.Result); }, function (error) {
+            _this.statusMessage = "problem with service please try again after some time";
+            console.log(_this.statusMessage);
+        });
+    };
+    QuestionGroupListComponent.prototype.getGroupById = function (group) {
+        var _this = this;
+        this.groupCategory = group.Category;
+        this._quetionGroupService.getQuestionDetailsById(group.ID).subscribe(function (data) { _this.questionDetails = data, console.log(_this.questionDetails); }, function (error) {
             _this.statusMessage = "problem with service please try again after some time";
             console.log(_this.statusMessage);
         });

@@ -10,8 +10,9 @@ import { Observable } from 'rxjs/Observable';
 export class QuestionGroupListComponent implements OnInit {
 
     questionGroupList: any;
-  
+    groupCategory = "";
     statusMessage: string = "Loading Data";
+    questionDetails: any;
 
     constructor(private _quetionGroupService: QuestionGroupService) {
 
@@ -24,4 +25,20 @@ export class QuestionGroupListComponent implements OnInit {
                 console.log(this.statusMessage);
             });
     }
+
+    getGroupById(group: any) {
+
+        this.groupCategory = group.Category;
+
+        this._quetionGroupService.getQuestionDetailsById(group.ID).subscribe((data) => { this.questionDetails = data, console.log(this.questionDetails); },
+            (error) => {
+                this.statusMessage = "problem with service please try again after some time";
+                console.log(this.statusMessage);
+            });
+
+
+    }
+
+
+
 }
