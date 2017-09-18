@@ -10,8 +10,8 @@ namespace GTC.Models
 {
     public class QuestionDBModel
     {
-        private SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["GTCDB"].ConnectionString);
-        //private SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["newgtc"].ConnectionString);
+        private SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RemoteGTCDB"].ConnectionString);
+        //private SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalGTCDB"].ConnectionString);
 
         public Response GetGroups()
         {

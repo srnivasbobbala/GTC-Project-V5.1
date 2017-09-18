@@ -1,8 +1,33 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>GTC Data Test Build - client view</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <style>
+        .modal-header {
+            background: #782b90 !important;
+        }
+
+            .modal-header h4 {
+                color: white;
+            }
+
+        .btn-primary {
+            background: #9f3c96;
+            border-color: #9f3c96;
+        }
+
+        .form .input-field-group, .form .radio-inputs {
+            position: relative;
+            margin-top: 1.3em;
+        }
+        .modal-dialog{
+            width:80%;
+        }
+    </style>
 </head>
 <body>
     <!--Nav Start-->
@@ -32,24 +57,33 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <img src="../../../Content/Images/close-circle.svg" />
+                    </button>
                     <h4 class="modal-title">{{groupCategory}}</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Some text in the modal.</p>
+                 
+                    <form class="form col-md-6 center-column" *ngIf="questionDetails">
+                        <div class="row" *ngFor="let question of questionDetails.Result">
+                            <div class="form-group col-md-12 input-field-group">
+                                <!--<label for="{{question.Question}}">{{question.Question}}</label>-->
+                                <input type="text" class="form-control" id="{{question.ID}}" placeholder="{{question.Question}}" required="">
+                                
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Save Information</button>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <ul *ngIf="questionDetails">
-        <li *ngFor="let question of questionDetails.Result">{{question.ID}}, {{question.Question}},{{question.QuestionSequence}},{{question.QuestionCategory.ID}}</li>
 
-    </ul>
 
 </body>
 </html>
