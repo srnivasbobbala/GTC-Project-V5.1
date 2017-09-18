@@ -441,7 +441,7 @@ function initChart(chartID, _data) {
   });
 }
 
-initChart($('#dashboard-chart'), '../data/totalwealth.json');
+initChart($('#dashboard-chart'), '../Content/data/totalwealth.json');
 
 // Script for Capture form in modal window -----
 $('button[data-next-step="step2"]').on('click touchend', function() {

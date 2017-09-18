@@ -30,7 +30,7 @@ namespace GTC.Controllers.api
         [Route("api/Question/QuestionByGroup")]
         public IHttpActionResult QuestionByGroup(int groupId)
         {
-            return Ok(db.GetGroupById(groupId));
+            return Ok(db.QuestionByGroup(groupId));
         }
 
 
