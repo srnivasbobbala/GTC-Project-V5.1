@@ -2,10 +2,8 @@
 import { QuestionGroupService } from './QuestionGroupService';
 import { Observable } from 'rxjs/Observable';
 @Component({
-
     selector: '<list-group>',
-    templateUrl: './Questiongrouplist.component.html'
-
+    templateUrl: './Questiongrouplist.component.html',
 })
 
 
@@ -25,10 +23,5 @@ export class QuestionGroupListComponent implements OnInit {
                 this.statusMessage = "problem with service please try again after some time";
                 console.log(this.statusMessage);
             });
-
-
-            
     }
-
-
 }

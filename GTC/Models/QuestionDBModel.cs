@@ -10,33 +10,28 @@ namespace GTC.Models
 {
     public class QuestionDBModel
     {
-        //private SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["GTCDB"].ConnectionString);
-        private SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["newgtc"].ConnectionString);
+        private SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["GTCDB"].ConnectionString);
+        //private SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["newgtc"].ConnectionString);
 
         public Response GetGroups()
         {
-            IList<GroupModel> questionGroupModelList = new List<GroupModel>();
+            IList<QuestionCategoryModel> questionGroupModelList = new List<QuestionCategoryModel>();
             Response response = new Response();
             try
             {
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "SP_GetGroup";
+                cmd.CommandText = "GetQuestionsCategory";
 
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    questionGroupModelList.Add(new GroupModel
+                    questionGroupModelList.Add(new QuestionCategoryModel
                     {
-                        Id = int.Parse(reader["ID"].ToString()),
-                        Title = reader["Title"].ToString(),
-                        Tip = reader["Tip"].ToString(),
-                        OrderId = int.Parse(reader["OrderId"].ToString()),
-                        TableList = new TableListModel()
-                        {
-                            Id = int.Parse(reader["TableListId"].ToString()),
-                        },
+                        ID = int.Parse(reader["ODSQuestionCategoryID"].ToString()),
+                        Category = reader["ODSQuestionCategory"].ToString(),
+                        Sequence = int.Parse(reader["ODSQuestionCategorySequence"].ToString()),
                     });
                 }
                 response.ResponseId = 1;
@@ -57,54 +52,50 @@ namespace GTC.Models
         public Response GetGroupById(int id)
         {
             Response response = new Response();
-            GroupModel QuestionGroup = new GroupModel();
+            QuestionCategoryModel QuestionGroup = new QuestionCategoryModel();
             return response;
         }
 
         public Response QuestionByGroup(int groupId)
         {
-            IList<QuestionDetailsModel> QuestionDetails = new List<QuestionDetailsModel>();
+            IList<QuestionModel> Question = new List<QuestionModel>();
 
             Response response = new Response();
             try
             {
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "SP_GetQuestionByGroup";
-                cmd.Parameters.AddWithValue("@GroupId", groupId);
+                cmd.CommandText = "GetQuestionsByCategory";
+                cmd.Parameters.AddWithValue("@ODSQuestionCategoryID", groupId);
 
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    
-                    QuestionDetails.Add(new QuestionDetailsModel
+
+                    Question.Add(new QuestionModel
                     {
-                        Group = new GroupModel()
+                        ID = int.Parse(reader["ODSQuestionID"].ToString()),
+                        Question = reader["ODSQuestion"].ToString(),
+                        QuestionCategory = new QuestionCategoryModel()
                         {
-                            Id = int.Parse(reader["GroupId"].ToString()),
-                            Title = reader["GroupTitle"].ToString(),
-                            Tip = reader["GroupTip"].ToString(),
-                            TableList = new TableListModel()
-                            {
-                                Id = int.Parse(reader["GroupTableListId"].ToString()),
-                            },
-                            OrderId = int.Parse(reader["GroupOrderId"].ToString()),
+                            ID = int.Parse(reader["ODSQuestionCategoryID"].ToString()),
                         },
-                        Question = new QuestionMasterModel()
+                        QuestionType = new QuestionTypeModel()
                         {
-                            Id = int.Parse(reader["QuestionId"].ToString()),
-                            Title = reader["QuestionTitle"].ToString(),
+                            ID = int.Parse(reader["ODSQuestionTypeID"].ToString()),
                         },
+                        QuestionMandatory = bool.Parse(reader["ODSQuestionMandatory"].ToString()),
+                        QuestionSequence = int.Parse(reader["ODSQuestionSequence"].ToString()),
                     });
 
                 }
                 response.ResponseId = 1;
-                if (QuestionDetails.Count > 0)
+                if (Question.Count > 0)
                     response.ResponseMessage = "Found Questions";
                 else
                     response.ResponseMessage = "No Question found for this Group";
-                response.Result = QuestionDetails;
+                response.Result = Question;
             }
             catch (Exception ex)
             {

@@ -26,7 +26,7 @@ var QuestionGroupListComponent = /** @class */ (function () {
     QuestionGroupListComponent = __decorate([
         core_1.Component({
             selector: '<list-group>',
-            templateUrl: './Questiongrouplist.component.html'
+            templateUrl: './Questiongrouplist.component.html',
         }),
         __metadata("design:paramtypes", [QuestionGroupService_1.QuestionGroupService])
     ], QuestionGroupListComponent);

@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 
 /* Colour Variables */
 
@@ -460,7 +460,7 @@ form .btn-primary:focus:active {
 }
 
 .module-header {
-    background: var(--darkgrey-gtc-color);
+    background: var(--mainpurple-gtc-color);
     color: white;
     padding: 0;
     border-radius: 4px 4px 0 0;

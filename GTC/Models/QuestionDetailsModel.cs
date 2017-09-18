@@ -7,7 +7,7 @@ namespace GTC.Models
 {
     public class QuestionDetailsModel
     {
-        public GroupModel Group { get; set; }
-        public QuestionMasterModel Question { get; set; }
+        public QuestionCategoryModel Group { get; set; }
+        public QuestionModel Question { get; set; }
     }
 }

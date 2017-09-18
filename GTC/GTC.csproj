@@ -223,9 +223,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\QuestionDBModel.cs" />
-    <Compile Include="Models\GroupModel.cs" />
+    <Compile Include="Models\QuestionCategoryModel.cs" />
     <Compile Include="Models\QuestionDetailsModel.cs" />
-    <Compile Include="Models\QuestionMasterModel.cs" />
+    <Compile Include="Models\QuestionModel.cs" />
+    <Compile Include="Models\QuestionTypeModel.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Models\TableListModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

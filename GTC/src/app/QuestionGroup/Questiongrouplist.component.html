@@ -3,20 +3,17 @@
 <head>
     <title></title>
     <meta charset="utf-8" />
-    <script src="../../../Content/Script/bootstrap.min.js"></script>
-    <link href="../../../Content/Styles/bootstrap.min.css" rel="stylesheet" />
-    <link href="../../../Content/Styles/custom.css" rel="stylesheet" />
-    <script src="../../../Content/Script/jquery-3.2.1.min.js"></script>
-
-    <style>
-    </style>
 </head>
 <body>
+    <!--Nav Start-->
+    
+    <!--Nav end-->
+
     <div class="row mt-20 grid-style" *ngIf="questionGroupList">
         <div class="col-sm-6 col-md-4"*ngFor="let group of questionGroupList.Result" >
             <article class="module-section">
                 <div class="module-header">
-                    <h2>{{group.Title}}</h2>
+                    <h2>{{group.Category}}</h2>
                 </div>
                 <div class="module-body container-fluid">
                     <div class="add-information">
@@ -26,52 +23,8 @@
                 </div>
             </article>
         </div>
-    </div>
-    <style>
-        .module-header{
-            background-color:#782b90 !important;
-        }
-        .module-section {
-            background: white;
-            border-radius: 0.3rem;
-            box-shadow: 0px 1px 10px -5px #888888;
-            margin-bottom: 2rem;
-        }
-
-        .grid-style .module-body {
-            min-height: 290px;
-            margin-top: 0;
-            padding: 0;
-            position: relative;
-        }
-
-        .add-financial-info, .add-information {
-            padding: 6.5rem 0 0 0;
-            text-align: center;
-            opacity: 0.8;
-            cursor: pointer;
-            transition: all 0.2s linear;
-        }
-
-        .add-information {
-            padding: 5rem 0;
-        }
-
-            .add-financial-info img, .add-information img {
-                width: 60px;
-            }
-
-            .add-information p {
-                width: 100%;
-            }
-
-            .add-financial-info p, .add-information p {
-                font-size: 2rem;
-                line-height: 2.4rem;
-                color: #a9a9a9;
-                width: 50%;
-                margin: 1rem auto;
-            }
-    </style>
+    </div>    
+    <!--Script Links-->
+    <script src="../Content/Script/jquery-3.2.1.min.js"></script>
 </body>
 </html>
