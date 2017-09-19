@@ -58,7 +58,7 @@ namespace GTC.Models
 
         public Response QuestionByGroup(int groupId)
         {
-            IList<QuestionModel> Question = new List<QuestionModel>();
+            IList<QuestionModel> questionsList = new List<QuestionModel>();
 
             Response response = new Response();
             try
@@ -73,7 +73,7 @@ namespace GTC.Models
                 while (reader.Read())
                 {
 
-                    Question.Add(new QuestionModel
+                    questionsList.Add(new QuestionModel
                     {
                         ID = int.Parse(reader["ODSQuestionID"].ToString()),
                         Question = reader["ODSQuestion"].ToString(),
@@ -91,11 +91,11 @@ namespace GTC.Models
 
                 }
                 response.ResponseId = 1;
-                if (Question.Count > 0)
+                if (questionsList.Count > 0)
                     response.ResponseMessage = "Found Questions";
                 else
                     response.ResponseMessage = "No Question found for this Group";
-                response.Result = Question;
+                response.Result = questionsList;
             }
             catch (Exception ex)
             {

@@ -29,7 +29,6 @@ export class QuestionGroupListComponent implements OnInit {
     getGroupById(group: any) {
 
         this.groupCategory = group.Category;
-
         this._quetionGroupService.getQuestionDetailsById(group.ID).subscribe((data) => { this.questionDetails = data, console.log(this.questionDetails); },
             (error) => {
                 this.statusMessage = "problem with service please try again after some time";
