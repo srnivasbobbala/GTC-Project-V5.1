@@ -12,7 +12,6 @@ var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
 var Questiongrouplist_component_1 = require("./QuestionGroup/Questiongrouplist.component");
-var Home_component_1 = require("./Home.component");
 var QuestionGroupService_1 = require("./QuestionGroup/QuestionGroupService");
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -20,7 +19,7 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule],
-            declarations: [app_component_1.AppComponent, Home_component_1.HomeComponent, Questiongrouplist_component_1.QuestionGroupListComponent],
+            declarations: [app_component_1.AppComponent, Questiongrouplist_component_1.QuestionGroupListComponent],
             bootstrap: [app_component_1.AppComponent],
             providers: [QuestionGroupService_1.QuestionGroupService]
         })

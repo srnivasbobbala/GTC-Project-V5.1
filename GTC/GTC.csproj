@@ -202,8 +202,6 @@
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="src\app\app.component.html" />
-    <Content Include="src\app\Home.html" />
     <Content Include="src\app\QuestionGroup\Questiongrouplist.component.html" />
     <Content Include="src\favicon.ico" />
     <Content Include="src\index.html" />
@@ -265,7 +263,6 @@
     <TypeScriptCompile Include="src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
-    <TypeScriptCompile Include="src\app\Home.component.ts" />
     <TypeScriptCompile Include="src\app\QuestionGroup\Questiongrouplist.component.ts" />
     <TypeScriptCompile Include="src\app\QuestionGroup\QuestionGroupService.ts" />
     <TypeScriptCompile Include="src\main.ts" />
