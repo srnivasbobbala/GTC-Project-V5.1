@@ -14,17 +14,17 @@ var http_1 = require("@angular/http");
 var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
-var QuestionGroupService = (function () {
+var QuestionGroupService = /** @class */ (function () {
     function QuestionGroupService(_http) {
         this._http = _http;
     }
     QuestionGroupService.prototype.getQuestionGroupList = function () {
-        return this._http.get("http://localhost:1934/api/Question/Group")
+        return this._http.get("/api/Question/Group")
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
     QuestionGroupService.prototype.getQuestionDetailsById = function (id) {
-        return this._http.get("http://localhost:1934/api/Question/QuestionByGroup?groupId=" + id)
+        return this._http.get("/api/Question/QuestionByGroup?groupId=" + id)
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };

@@ -13,14 +13,14 @@ export class QuestionGroupService {
     }
 
     getQuestionGroupList(): Observable<any> {
-        return this._http.get("http://localhost:1934/api/Question/Group")
+        return this._http.get("/api/Question/Group")
             .map((response: Response) => <any>response.json())
             .catch(this.handleError)
 
     }
 
     getQuestionDetailsById(id: any): Observable<any> {
-        return this._http.get("http://localhost:1934/api/Question/QuestionByGroup?groupId=" + id)
+        return this._http.get("/api/Question/QuestionByGroup?groupId=" + id)
             .map((response: Response) => <any>response.json())
             .catch(this.handleError)
 
