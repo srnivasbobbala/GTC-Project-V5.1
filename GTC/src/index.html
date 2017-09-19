@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Angular QuickStart</title>
+    <title>GTC Data Test Build - client view</title>
     <base href="/src/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,6 +20,555 @@
     <link href="../Content/Styles/nouislider.min.css" rel="stylesheet" />
     <link href="../Content/Styles/custom.css" rel="stylesheet" />
 
+    
+</head>
+<body>
+    <!--Nav Start-->
+    <div class="top-nav">
+        <section class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"> <img class="logo" alt="Brand" src="../Content/Images/GTC_logo_BIG2@2X.png"> </a>
+                    <div class="form-group navbar-left">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                </div>
+                <div class="profile-nav-elements">
+                    <a href="#">
+                        <div class="profile-image">
+                            <img src="../Content/Images/margaret.jpg" /></div>
+                        <div class="profile-name"> Margaret Green </div>
+                    </a>
+                    <a href="#">
+                        <div class="profile-icons">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31"
+                                 height="30" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+                            <g stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" fill="none">
+                            <path d="M23.5 18c0 .828-.672 1.5-1.5 1.5h-20c-.828 0-1.5-.672-1.5-1.5v-12c0-.828.672-1.5 1.5-1.5h20c.828 0 1.5.672 1.5 1.5v12zM20.5 8.5l-8.5 5.5-8.5-5.5M3.5 16l3.5-2M20.5 16l-3.5-2" />
+                </g>
+              </svg>
+                            <span class="badge red">3</span>
+                        </div>
+                    </a>
+                    <div class="open-menu-trigger">
+                        <div class="profile-icons">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31"
+                                 height="30" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+                            <g stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" fill="none">
+                            <path d="M20.254 13.5h3.246v-3h-3.247c-.209-.867-.551-2.181-1.003-2.922l2.296-2.295-2.829-2.829-2.297 2.296c-.74-.451-2.053-.793-2.92-1.002v-3.248h-3v3.248c-.867.209-2.181.551-2.921 1.002l-2.297-2.296-2.829 2.829 2.297 2.296c-.452.74-.794 2.054-1.004 2.921h-3.246v3h3.246c.21.867.552 2.182 1.004 2.921l-2.297 2.297 2.829 2.828 2.296-2.298c.741.454 2.055.796 2.922 1.006v3.246h3v-3.246c.867-.21 2.181-.552 2.92-1.004l2.298 2.296 2.828-2.828-2.296-2.297c.452-.739.794-2.054 1.004-2.921z" />
+                            <circle cx="12" cy="12" r="4.5" />
+                </g>
+              </svg>
+                            <div class="popout-menu">
+                                <ul class="popout-menu-list">
+                                    <li><a href="#"><i class="icon"><img src="../Content/Images/gauge.svg"></i>Dashboard Settings</a></li>
+                                    <li><a href="#"><i class="icon"><img src="../Content/Images/contact-book.svg"></i>Contact Settings</a></li>
+                                    <li><a href="#"><i class="icon"><img src="../Content/Images/wrenches.svg"></i>Other Settings</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!--Nav end-->
+    <!--Side Nav-->
+    <div id="menu">
+        <nav>
+            <h2><i class="menu-back-i close-icon"><img src="../Content/Images/close.svg"></i></h2>
+            <ul class="top-level">
+                <li> <a href="#" data-open="dashboard"><i class="menu-icon"><img src="../Content/Images/gauge.svg"></i>Dashboard</a> </li>
+                <li> <a href="#" data-open="personal-info"><i class="menu-icon"><img src="../Content/Images/user.svg"></i>Personal Info<span class="status some-info"></span></a> </li>
+                <li>
+                    <a href="#"><i class="menu-icon"><img src="../Content/Images/financial-info.svg"></i>Financial Info<span class="status no-info"></span></a>
+                    <ul class="second-level financial-scenarios">
+                        <li>
+                            <a href="#" data-open="add-new-scenario"><i class="menu-icon"><img src="../Content/Images/scenario-icon.svg"></i><span>Baseline Financial information</span></a>
+                        </li>
+                        <li>
+                            <a href="#" data-target="#scenarioDetail" data-open="asking-question"><i class="menu-icon"><img src="../Content/Images/plus-circle.svg"></i>Add new Scenario</a>
+                        </li>
+                    </ul>
+                </li>
+                <li> <a href="#" data-open="economic-factors"><i class="menu-icon"><img src="../Content/Images/risk-and-insurance.svg"></i>Risk and Insurance<span class="status no-info"></span></a> </li>
+                <li> <a href="#" data-open="economic-factors"><i class="menu-icon"><img src="../Content/Images/graph.svg"></i>Economic Factors</a> </li>
+                <li> <a href="#" data-open="life-board"><i class="menu-icon"><img src="../Content/Images/game.svg"></i>Life Board</a> </li>
+            </ul>
+        </nav>
+    </div>
+    <!--Side Nav End-->
+    <div class="white-out"></div>
+
+    <!--Main content area-->
+    <section class="content-section client-view show-section" id="dashboard">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="module-section">
+                    <div class="module-header">
+                        <h2>Personal Detials <a href="#"><img src="../Content/Images/edit.svg"></a></h2>
+                    </div>
+                    <div class="module-body container-fluid">
+                        <div class="client-profile">
+
+                            <a href="#"><img src="../Content/Images/james.jpg"></a>
+                            <hr>
+                            <div class="col-md-4 strong-profile-text">Name:</div> <span class="col-md-8 word-break">James</span>
+                            <div class="col-md-4 strong-profile-text">Surname:</div> <span class="col-md-8 word-break">Dean</span>
+                            <div class="col-md-4 strong-profile-text">Id:</div><span class="col-md-8 word-break">0803315060231</span>
+                            <div class="col-md-4 strong-profile-text">Contact:</div> <span class="col-md-8 word-break">555 351 6359</span>
+                            <div class="col-md-4 strong-profile-text">Email:</div><span class="col-md-8 word-break">james.dean@mortuarymail.com</span>
+                            <div class="col-md-4 strong-profile-text">Home Language:</div> <span class="col-md-8 word-break">English </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-8 broker-space">
+                <div class="module-section">
+                    <div class="module-header">
+                        <h2>Stats</h2>
+                    </div>
+                    <div class="module-body container-fluid">
+                        <div class="main">
+                            <section class="charts">
+                                <div class="col-md-4">
+                                    <div class="chart-icon">
+                                        <div class="graph-vlaue"> <img src="../Content/Images/money.svg"> <span></span> </div>
+                                    </div>
+                                    <div id="dashboard-chart" class="pie-container"></div>
+                                </div>
+                                <div class="stats col-md-8">
+                                    <div id="living-annuity">
+                                        <div class="stats-titles"><span>Stats Title</span><span class="stat-value-highest"></span> <a class="stats-quickview" href="#">view</a>                      </div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-highest" role="progressbar" aria-valuemin="0" aria-valuemax="100"> <span class="sr-only"></span> </div>
+                                        </div>
+                                    </div>
+                                    <div id="endowment">
+                                        <div class="stats-titles"><span>Stats Title</span><span class="stat-value-high"></span> <a class="stats-quickview" href="#">view</a>                      </div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-high" role="progressbar" aria-valuemin="0" aria-valuemax="100"> <span class="sr-only"></span> </div>
+                                        </div>
+                                    </div>
+                                    <div id="unit-trust">
+                                        <div class="stats-titles"><span>Stats Title</span><span class="stat-value-medium"></span><a class="stats-quickview" href="#">view</a>                      </div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-medium" role="progressbar" aria-valuemin="0" aria-valuemax="100"> <span class="sr-only"></span> </div>
+                                        </div>
+                                    </div>
+                                    <div id="retirement">
+                                        <div class="stats-titles"><span>Stats Title</span><span class="stat-value-low"></span> <a class="stats-quickview" href="#">view</a>                      </div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-low" role="progressbar" aria-valuemin="0" aria-valuemax="100"> <span class="sr-only"></span> </div>
+                                        </div>
+                                    </div>
+                                    <div id="annuity">
+                                        <div class="stats-titles"><span>Stats Title</span><span class="stat-value-lowest"></span><a class="stats-quickview" href="#">view</a>                      </div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-lowest" role="progressbar" aria-valuemin="0" aria-valuemax="100"> <span class="sr-only"></span> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top clients list -->
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <div class="module-section moveable-module">
+                    <div class="module-header order-1">
+                        <h2>Goal Name</h2>
+                    </div>
+                    <div class="module-body container-fluid goal-box">
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <div class="goal-progress-indicator">
+                                    <img src="../Content/Images/sample-graph-goal.jpg">
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="goal-box-info">
+                                    <p><strong>Achievability: <span>60%</span></strong></p>
+                                    <p><strong>Monthly contribution: <span>R3000</span></strong></p>
+                                    <p><strong>Savings period: <span>360 months</span></strong></p>
+                                    <p><strong>Retirement income: <span>R25 000</span></strong></p>
+                                    <p>"Lorem ipsum dolor sit amet, condec-tetur adipiscing elit, sed do eiusmod"</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="progress goal-tracking mt-20">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                        Volatility <span class="sr-only">80%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 text-center">
+                                <button class="btn btn-primaryDark">Adjust this Goal <i class="edit-icon"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="module-section moveable-module">
+                    <div class="module-header order-2">
+                        <h2>Goal Name</h2>
+                    </div>
+                    <div class="module-body container-fluid goal-box">
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <div class="goal-progress-indicator">
+                                    <img src="../Content/Images/sample-graph-goal.jpg">
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="goal-box-info">
+                                    <p><strong>Achievability: <span>60%</span></strong></p>
+                                    <p><strong>Monthly contribution: <span>R3000</span></strong></p>
+                                    <p><strong>Savings period: <span>360 months</span></strong></p>
+                                    <p><strong>Retirement income: <span>R25 000</span></strong></p>
+                                    <p>"Lorem ipsum dolor sit amet, condec-tetur adipiscing elit, sed do eiusmod"</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="progress goal-tracking mt-20">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                        Volatility <span class="sr-only">60%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 text-center">
+                                <button class="btn btn-primaryDark">Adjust this Goal <i class="edit-icon"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="module-section">
+                    <div class="module-header">
+                        <h2>Add new Goal</h2>
+                    </div>
+                    <div class="module-body container-fluid goal-box">
+                        <div class="goal-box-empty"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section client-view" id="personal-info">
+        <my-app>Loading AppComponent content here ...</my-app>
+    </section>
+
+    <section class="content-section client-view" id="add-new-scenario">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h2 class="scenario-title">Baseline Financial information<span class="edit-icon"></span></h2>
+                    </div>
+                    <div class="col-xs-6">
+                        <form class="form sortby-form">
+                            <div class="form-group input-field-group mt-0">
+                                <select class="form-control" id="sortbyDropdown">
+                                    <option selected>Sort by</option>
+                                    <option>A-Z (asc)</option>
+                                    <option>Z-A (desc)</option>
+                                    <option>Type (asc)</option>
+                                    <option>Type (desc)</option>
+                                    <option>% Completed</option>
+                                </select>
+                                <div class="icon-btn">
+                                    <i class="list-icon"></i>
+                                    <span class="sr-only">Change view to list style</span>
+                                </div>
+                                <div class="icon-btn active">
+                                    <i class="grid-icon"></i>
+                                    <span class="sr-only">Change view to grid style</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="info-search-bar">
+                    <form class="form">
+                        <div class="row">
+                            <div class="form-group col-sm-7 col-md-4 mb-0">
+                                <input type="text" class="form-control" placeholder="search in personal info">
+                            </div>
+                            <div class="col-sm-2">
+                                <a id="advancedSearch">Advanced search</a>
+                            </div>
+                        </div>
+                        <div class="advanced-search-box">
+                            <h3 class="mt-0">Define search filters</h3>
+                            <div class="row">
+                                <div class="form-group col-md-6 check-group mb-0">
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="check1">
+                                        <label for="check1"><span class="checkbox-ui"></span>Option 1</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="check2">
+                                        <label for="check2"><span class="checkbox-ui"></span>Option 2</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="check3">
+                                        <label for="check3"><span class="checkbox-ui"></span>Option 3</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-20 grid-style">
+            <!-- in the JS the class changes from list-style to grid-style depending on how you would like to view the content -->
+            <div class="col-sm-6 col-md-3">
+
+                <!-- Article area where specific captured finance information is displayed -->
+                <article class="module-section">
+                    <div class="module-header">
+                        <h2>Financial details</h2>
+                    </div>
+                    <div class="module-body container-fluid">
+                        <div class="captured-data" data-simplebar data-simplebar-autohide="false">
+                            <div class="col-sm-12">
+
+                                <!-- actual financial content captured go here -->
+                                <p>summary of specific financial information captured to be displayed</p>
+                                <!-- and end here -->
+
+                            </div>
+                        </div>
+                        <!-- buttons to delete financial info or edit them -->
+                        <div class="captured-data-buttons">
+                            <button type="button" class="btn btn-default">Delete</button>
+                            <button type="button" class="btn btn-primary"
+                                    data-toggle="modal" data-target="#addFinancialInfo" data-backdrop="static" data-keyboard="false">
+                                Edit <!-- should open the modal again to edit the data -->
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                <!-- end of that financial article piece -->
+
+            </div>
+            <div class="col-sm-6 col-md-3">
+
+                <!-- Button to trigger adding more financial information (modal opens) -->
+                <article class="row">
+                    <div class="add-financial-info" data-toggle="modal" data-target="#addFinancialInfo" data-backdrop="static" data-keyboard="false">
+                        <img src="../Content/Images/add-goal.svg">
+                        <p>Add more information</p>
+                    </div>
+                </article>
+                <!-- end of that financial trigger button -->
+
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section client-view" id="client-book">
+        <div class="module-section">
+            <div class="module-header">
+                <h2>Client Filter</h2>
+            </div>
+            <div class="module-body container-fluid">
+                <div class="col-md-6 filters">
+                    <div class="age-filter">
+                        <h3>Age</h3>
+                        <div class="age-filter-btns"> <a class="btn btn-filter">0 - 20</a> <a class="btn btn-filter">21 - 30</a> <a class="btn btn-filter">31 - 40</a>              <a class="btn btn-filter">41 - 50</a> <a class="btn btn-filter">Above 50</a> </div>
+                    </div>
+                    <div class="wealth-filter mt-20">
+                        <h3>Net Wealth</h3>
+                        <div class="row">
+                            <div class="moneyRange-slider col-xs-12 mt-20">
+                                <div id="netWealth" data-slider="range-slider" data-start-from="0" data-start-to="1500000" data-step="10000" data-range-min="0"
+                                     data-range-max="1500000"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="module-section">
+            <div class="module-header">
+                <h2>Search Results</h2>
+            </div>
+            <div class="module-body container-fluid">
+                <div class="table-responsive">
+                    <table class="table table-hover client-list">
+                        <thead>
+                            <tr>
+                                <th class="col-xs-3">Client</th>
+                                <th class="col-xs-1">Age</th>
+                                <th class="col-xs-2">Net wealth</th>
+                                <th class="col-xs-2">Products</th>
+                                <th class="col-xs-2">Risk</th>
+                                <th class="col-xs-2">Renewal Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-xs-5 col-md-3 client-profile"> <img src="../Content/Images/profile.svg"> </div>
+                                        <div class="col-xs-7 col-md-9"> <span class="client-name"> <a href="#">Name and Surname</a> </span> <span class="client-onlinestatus"> last online: 5 days ago </span>                      </div>
+                                    </div>
+                                </td>
+                                <td><span class="client-age">30</span></td>
+                                <td><span class="client-wealth">R15 M</span></td>
+                                <td><span class="client-product">Product Name</span></td>
+                                <td><span class="client-risk">Risk Here</span></td>
+                                <td><span class="client-renewalDate">24 July 2018</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-xs-5 col-md-3 client-profile"> <img src="../Content/Images/profile.svg"> </div>
+                                        <div class="col-xs-7 col-md-9"> <span class="client-name"> <a href="#">Name and Surname</a> </span> <span class="client-onlinestatus"> last online: 5 days ago </span>                      </div>
+                                    </div>
+                                </td>
+                                <td><span class="client-age">30</span></td>
+                                <td><span class="client-wealth">R15 M</span></td>
+                                <td><span class="client-product">Product Name</span></td>
+                                <td><span class="client-risk">Risk Here</span></td>
+                                <td><span class="client-renewalDate">24 July 2018</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-xs-5 col-md-3 client-profile"> <img src="../Content/Images/profile.svg"> </div>
+                                        <div class="col-xs-7 col-md-9"> <span class="client-name"> <a href="#">Name and Surname</a> </span> <span class="client-onlinestatus"> last online: 5 days ago </span>                      </div>
+                                    </div>
+                                </td>
+                                <td><span class="client-age">30</span></td>
+                                <td><span class="client-wealth">R15 M</span></td>
+                                <td><span class="client-product">Product Name</span></td>
+                                <td><span class="client-risk">Risk Here</span></td>
+                                <td><span class="client-renewalDate">24 July 2018</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-xs-5 col-md-3 client-profile"> <img src="../Content/Images/profile.svg"> </div>
+                                        <div class="col-xs-7 col-md-9"> <span class="client-name"> <a href="#">Name and Surname</a> </span> <span class="client-onlinestatus"> last online: 5 days ago </span>                      </div>
+                                    </div>
+                                </td>
+                                <td><span class="client-age">30</span></td>
+                                <td><span class="client-wealth">R15 M</span></td>
+                                <td><span class="client-product">Product Name</span></td>
+                                <td><span class="client-risk">Risk Here</span></td>
+                                <td><span class="client-renewalDate">24 July 2018</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-xs-5 col-md-3 client-profile"> <img src="../Content/Images/profile.svg"> </div>
+                                        <div class="col-xs-7 col-md-9"> <span class="client-name"> <a href="#">Name and Surname</a> </span> <span class="client-onlinestatus"> last online: 5 days ago </span>                      </div>
+                                    </div>
+                                </td>
+                                <td><span class="client-age">30</span></td>
+                                <td><span class="client-wealth">R15 M</span></td>
+                                <td><span class="client-product">Product Name</span></td>
+                                <td><span class="client-risk">Risk Here</span></td>
+                                <td><span class="client-renewalDate">24 July 2018</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-xs-5 col-md-3 client-profile"> <img src="../Content/Images/profile.svg"> </div>
+                                        <div class="col-xs-7 col-md-9"> <span class="client-name"> <a href="#">Name and Surname</a> </span> <span class="client-onlinestatus"> last online: 5 days ago </span>                      </div>
+                                    </div>
+                                </td>
+                                <td><span class="client-age">30</span></td>
+                                <td><span class="client-wealth">R15 M</span></td>
+                                <td><span class="client-product">Product Name</span></td>
+                                <td><span class="client-risk">Risk Here</span></td>
+                                <td><span class="client-renewalDate">24 July 2018</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-xs-5 col-md-3 client-profile"> <img src="../Content/Images/profile.svg"> </div>
+                                        <div class="col-xs-7 col-md-9"> <span class="client-name"> <a href="#">Name and Surname</a> </span> <span class="client-onlinestatus"> last online: 5 days ago </span>                      </div>
+                                    </div>
+                                </td>
+                                <td><span class="client-age">30</span></td>
+                                <td><span class="client-wealth">R15 M</span></td>
+                                <td><span class="client-product">Product Name</span></td>
+                                <td><span class="client-risk">Risk Here</span></td>
+                                <td><span class="client-renewalDate">24 July 2018</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-xs-5 col-md-3 client-profile"> <img src="../Content/Images/profile.svg"> </div>
+                                        <div class="col-xs-7 col-md-9"> <span class="client-name"> <a href="#">Name and Surname</a> </span> <span class="client-onlinestatus"> last online: 5 days ago </span>                      </div>
+                                    </div>
+                                </td>
+                                <td><span class="client-age">30</span></td>
+                                <td><span class="client-wealth">R15 M</span></td>
+                                <td><span class="client-product">Product Name</span></td>
+                                <td><span class="client-risk">Risk Here</span></td>
+                                <td><span class="client-renewalDate">24 July 2018</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-xs-5 col-md-3 client-profile"> <img src="../Content/Images/profile.svg"> </div>
+                                        <div class="col-xs-7 col-md-9"> <span class="client-name"> <a href="#">Name and Surname</a> </span> <span class="client-onlinestatus"> last online: 5 days ago </span>                      </div>
+                                    </div>
+                                </td>
+                                <td><span class="client-age">30</span></td>
+                                <td><span class="client-wealth">R15 M</span></td>
+                                <td><span class="client-product">Product Name</span></td>
+                                <td><span class="client-risk">Risk Here</span></td>
+                                <td><span class="client-renewalDate">24 July 2018</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section client-view" id="life-board">
+        <div class="module-section">
+            <div class="module-header">
+                <h2>Life Board</h2>
+            </div>
+            <div class="module-body container-fluid">
+                <div class="life-board-controls">
+                    <button class="btn btn-primary" id="addSim">Add Sim</button>
+                </div>
+                <div class="life-board-container mt-20">
+                    <div class="simulation-indicator"></div>
+                    <img src="../Content/Images/lifeboard-graph-bg.svg" width="100%">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+     
+
     <!--Script Links-->
     <script src="../Content/Script/jquery-3.2.1.min.js"></script>
     <script src="../../../Content/Script/bootstrap.min.js"></script>
@@ -29,10 +578,6 @@
     <script src="../Content/Script/selectize.min.js"></script>
     <script src="../Content/Script/simplebar.js"></script>
     <script src="../Content/Script/custom.js"></script>
-</head>
-<body>
-    <my-app>Loading AppComponent content here ...</my-app>
-
 </body>
 
 </html>
