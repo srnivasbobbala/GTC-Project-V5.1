@@ -25,7 +25,7 @@
             margin-top: 1.3em;
         }
         .modal-dialog{
-            width:80%;
+            width:70%;
         }
     </style>
 </head>
@@ -69,7 +69,6 @@
                             <div class="form-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==1">
                                 <!--<label for="{{question.Question}}">{{question.Question}}</label>-->
                                 <input type="text" class="form-control" id="{{question.ID}}" placeholder="{{question.Question}}" required="">
-                                
                             </div>
                             <div class="form-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==2">
                                
@@ -102,7 +101,131 @@
         </div>
     </div>
 
-
+    <!-- Modals -->
+    <div class="modal capture-details fade" id="dynamicModel" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><img src="../Content/Images/close-circle.svg"></button>
+                    <h4 class="modal-title">Adding Personal information</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form col-md-6 center-column">
+                        <div class="row">
+                            <div class="form-group col-md-4 input-field-group">
+                                <select class="form-control" id="titleOptions">
+                                    <option selected>Title</option>
+                                    <option>Mr</option>
+                                    <option>Mrs</option>
+                                    <option>Miss</option>
+                                    <option>Ms</option>
+                                    <option>Dr</option>
+                                    <option>Prof</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4 input-field-group">
+                                <input type="text" class="form-control" id="initials" placeholder="">
+                                <label for="initials">Initials</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12 input-field-group">
+                                <input type="text" class="form-control" id="firstName" placeholder="" required>
+                                <label for="firstName">First name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12 input-field-group">
+                                <input type="text" class="form-control" id="middleName" placeholder="">
+                                <label for="middleName">Middle name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12 input-field-group">
+                                <input type="text" class="form-control" id="surname" placeholder="" required>
+                                <label for="surname">Surname</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12 input-field-group">
+                                <input type="text" class="form-control" id="idNumber" placeholder="">
+                                <label for="idNumber">ID number</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-10 input-field-group">
+                                <input type="text" class="form-control" id="dateBirth" placeholder="">
+                                <label for="dateBirth">Date of birth</label>
+                            </div>
+                            <div class="form-group col-md-2 input-field-group">
+                                <input type="text" class="form-control" id="age" placeholder="">
+                                <label for="age">Age</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12 radio-inputs">
+                                <label>Gender:</label>
+                                <div class="radio-group">
+                                    <input type="radio" name="gender" value="Male" id="genderMale">
+                                    <label for="genderMale">Male</label>
+                                    <input type="radio" name="gender" value="Female" id="genderFemale">
+                                    <label for="genderFemale">Female</label>
+                                    <input type="radio" name="gender" value="Female" id="genderOther">
+                                    <label for="genderOther">Other</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12 input-field-group">
+                                <input type="text" class="form-control" id="nationality" placeholder="">
+                                <label for="nationality">Nationality</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12 input-field-group">
+                                <input type="text" class="form-control" id="homeLanguage" placeholder="">
+                                <label for="homeLanguage">Home Language</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12 input-field-group">
+                                <input type="text" class="form-control" id="domicile" placeholder="">
+                                <label for="domicile">Domicile</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12 radio-inputs">
+                                <label>Marital status:</label>
+                                <div class="radio-group">
+                                    <input type="radio" name="maritalStatus" value="Married" id="msMarried">
+                                    <label for="msMarried">Married</label>
+                                    <input type="radio" name="maritalStatus" value="Single" id="msSingle">
+                                    <label for="msSingle">Single</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6 check-group">
+                                <div class="checkbox">
+                                    <input type="checkbox" id="option1">
+                                    <label for="option1"><span class="checkbox-ui"></span>Are you part of a trust fund?</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="option2">
+                                    <label for="option2"><span class="checkbox-ui"></span>Are you a director of a company?</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save information</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
