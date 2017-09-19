@@ -66,10 +66,67 @@
                  
                     <form class="form col-md-6 center-column" *ngIf="questionDetails">
                         <div class="row" *ngFor="let question of questionDetails.Result">
-                            <div class="form-group col-md-12 input-field-group">
+                            <div class="form-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==1">
                                 <!--<label for="{{question.Question}}">{{question.Question}}</label>-->
                                 <input type="text" class="form-control" id="{{question.ID}}" placeholder="{{question.Question}}" required="">
                             </div>
+                            <div class="form-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==2">
+                               
+                                <input type="number" class="form-control" id="{{question.ID}}" placeholder="{{question.Question}}" required="">
+
+                            </div>
+                            <div class="form-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==3">
+                                
+                                <textarea name="comment" class="form-control" id="{{question.ID}}" placeholder="{{question.Question}}" required=""> </textarea>
+
+                            </div>
+                            <div class="form-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==4">
+                                <input type="date" class="form-control" id="{{question.ID}}" placeholder="{{question.Question}}" required="">
+                              
+                            </div>
+                            <div class="form-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==5">
+                                <input type="checkbox" class="form-control" id="{{question.ID}}" placeholder="{{question.Question}}" required="">
+                            </div>
+                            <!--<div class="form-group col-md-12 radio-inputs" *ngIf="question.QuestionType.ID==7">
+                                <label>Gender:</label>
+                                <div class="radio-group">
+                                    <input type="radio" name="gender" value="Male" id="genderMale">
+                                    <label for="genderMale">Male</label>
+                                    <input type="radio" name="gender" value="Female" id="genderFemale">
+                                    <label for="genderFemale">Female</label>
+                                    <input type="radio" name="gender" value="Female" id="genderOther">
+                                    <label for="genderOther">Other</label>
+                                </div>
+                            </div>-->
+                            <div class="radio-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==7">
+                                <input type="radio" name="gender" class="form-control" value="male" checked> Male<br>
+                                <input type="radio" name="gender" class="form-control" value="female"> Female<br>
+                                <input type="radio" name="gender" class="form-control" value="other"> Other  
+                            </div>
+                            <div class="radio-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==8">
+                                <select class="form-control" id="titleOptions">
+                                    <option selected="">Title</option>
+                                    <option>Mr</option>
+                                    <option>Mrs</option>
+                                    <option>Miss</option>
+                                    <option>Ms</option>
+                                    <option>Dr</option>
+                                    <option>Prof</option>
+                                </select>
+                            </div>
+                           
+                            <!--<div class="form-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==8">
+                                <select class="form-control" id="{{question.ID}}">
+                                        <option value="volvo">Volvo</option>
+                                        <option value="saab">Saab</option>
+                                        <option value="mercedes">Mercedes</option>
+                                        <option value="audi">Audi</option>
+                                 </select>
+                                </div>
+                                -->
+                               
+                            
+
                         </div>
                     </form>
                 </div>
