@@ -225,6 +225,7 @@
     <Compile Include="Models\QuestionCategoryModel.cs" />
     <Compile Include="Models\QuestionDetailsModel.cs" />
     <Compile Include="Models\QuestionModel.cs" />
+    <Compile Include="Models\QuestionOptionsModel.cs" />
     <Compile Include="Models\QuestionTypeModel.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Models\TableListModel.cs" />

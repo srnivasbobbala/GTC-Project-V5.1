@@ -19,5 +19,7 @@ namespace GTC.Models
 
         public QuestionCategoryModel QuestionCategory { get; set; }
 
+        public IList<QuestionOptionsModel> QuestionOptions { get; set; }
+
     }
 }

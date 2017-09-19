@@ -87,6 +87,7 @@ namespace GTC.Models
                         },
                         QuestionMandatory = bool.Parse(reader["ODSQuestionMandatory"].ToString()),
                         QuestionSequence = int.Parse(reader["ODSQuestionSequence"].ToString()),
+                        QuestionOptions = OptionsByQuestion(int.Parse(reader["ODSQuestionID"].ToString())),
                     });
 
                 }
@@ -103,6 +104,35 @@ namespace GTC.Models
                 response.ResponseMessage = ex.Message;
             }
             return response;
+        }
+
+        public IList<QuestionOptionsModel> OptionsByQuestion(int questionId)
+        {
+            IList<QuestionOptionsModel> QuestionOptions = new List<QuestionOptionsModel>();
+            //QuestionOptions = null;
+            try
+            {
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "GetOptionByQuestion";
+                cmd.Parameters.AddWithValue("@ODSQuestionID", questionId);
+
+                //conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    QuestionOptions.Add(new QuestionOptionsModel()
+                    {
+                        Id = int.Parse(reader["ODSQuestionOptionID"].ToString()),
+                        Option = reader["QuestionOption"].ToString(),
+                    });
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+            return QuestionOptions;
         }
     }
 }
