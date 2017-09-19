@@ -89,27 +89,28 @@
                             <div class="form-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==5">
                                 <input type="checkbox" class="form-control" id="{{question.ID}}" placeholder="{{question.Question}}" required="">
                             </div>
-                            <div class="radio-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==7">
-                                <input type="radio" name="gender" class="form-control" value="male" checked> Male<br>
-                                <input type="radio" name="gender" class="form-control" value="female"> Female<br>
-                                <input type="radio" name="gender" class="form-control" value="other"> Other
-                            </div>
-                            <div class="radio-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==8">
+                           
+                            <div class="form-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==8">
                                 <select class="form-control" id="titleOptions">
                                     <option disabled selected> {{question.Question}} </option>
                                     <option *ngFor="let QuestionOption of question.QuestionOptions">{{QuestionOption.Option}}</option>
                                 </select>
                             </div>
-                            <div class="row" *ngIf="question.QuestionType.ID==23">
-                                <div class="form-group col-md-12 radio-inputs">
-                                    <div class="radio-group">
+                            <div class="form-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==23">
+                                <select class="form-control" id="titleOptions">
+                                    <option disabled selected> {{question.Question}} </option>
+                                    <option *ngFor="let QuestionOption of question.QuestionOptions">{{QuestionOption.Option}}</option>
+                                </select>
+                            </div>
+                            <!--<div class="row" *ngIf="question.QuestionType.ID==23">
+                                <div class="form-group col-md-12 input-field-group">
                                         <select class="form-control" id="titleOptions">
                                             <option disabled selected> {{question.Question}} </option>
                                             <option *ngFor="let QuestionOption of question.QuestionOptions">{{QuestionOption.Option}}</option>
                                         </select>
-                                    </div>
+                                    
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                     </form>
                 </div>
