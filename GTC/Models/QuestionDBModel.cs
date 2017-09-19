@@ -109,7 +109,6 @@ namespace GTC.Models
         public IList<QuestionOptionsModel> OptionsByQuestion(int questionId)
         {
             IList<QuestionOptionsModel> QuestionOptions = new List<QuestionOptionsModel>();
-            //QuestionOptions = null;
             try
             {
                 SqlCommand cmd = conn.CreateCommand();
