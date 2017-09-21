@@ -13,6 +13,7 @@ export class QuestionGroupListComponent implements OnInit {
     groupCategory = "";
     statusMessage: string = "Loading Data";
     questionDetails: any;
+    qdata: any="";
     profileDetails: Array<any> = [];
     questionData = {
         questionId: 0,
@@ -61,11 +62,15 @@ export class QuestionGroupListComponent implements OnInit {
         console.log(this.profileDetails);
     }
 
-    saveData(question: any) {
+    saveData(questionsData: any) {
 
-        console.log("hi");
+        this._quetionGroupService.getQuestionDetailsById(questionsData).subscribe((data) => { this.qdata = data, console.log(this.qdata); },
+            (error) => {
+                this.statusMessage = "problem with service please try again after some time";
+                console.log(this.statusMessage);
+            });
 
-        console.log(question);
+        
 
     }
 

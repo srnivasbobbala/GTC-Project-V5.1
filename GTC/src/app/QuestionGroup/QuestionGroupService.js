@@ -28,6 +28,13 @@ var QuestionGroupService = (function () {
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
+    QuestionGroupService.prototype.saveQuestionData = function (questionsData) {
+        var headers = new Headers({ 'Content-Type': 'application/json' });
+        //let options = new RequestOptions({ headers: headers }); 
+        return this._http.post("/api/Question/SaveQuestionAnswers", questionsData)
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
     QuestionGroupService.prototype.handleError = function (error) {
         console.log(error);
         return Observable_1.Observable.throw(error);

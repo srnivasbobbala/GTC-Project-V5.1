@@ -16,6 +16,7 @@ var QuestionGroupListComponent = (function () {
         this._quetionGroupService = _quetionGroupService;
         this.groupCategory = "";
         this.statusMessage = "Loading Data";
+        this.qdata = "";
         this.profileDetails = [];
         this.questionData = {
             questionId: 0,
@@ -57,8 +58,12 @@ var QuestionGroupListComponent = (function () {
         }
         console.log(this.profileDetails);
     };
-    QuestionGroupListComponent.prototype.saveData = function (question) {
-        console.log(question);
+    QuestionGroupListComponent.prototype.saveData = function (questionsData) {
+        var _this = this;
+        this._quetionGroupService.getQuestionDetailsById(questionsData).subscribe(function (data) { _this.qdata = data, console.log(_this.qdata); }, function (error) {
+            _this.statusMessage = "problem with service please try again after some time";
+            console.log(_this.statusMessage);
+        });
     };
     QuestionGroupListComponent = __decorate([
         core_1.Component({
