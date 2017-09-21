@@ -13,6 +13,14 @@ export class QuestionGroupListComponent implements OnInit {
     groupCategory = "";
     statusMessage: string = "Loading Data";
     questionDetails: any;
+    profileDetails: Array<any> = [];
+    questionData = {
+        questionId: 0,
+        questionName: "",
+        questionValue: ""
+
+
+    };
 
     constructor(private _quetionGroupService: QuestionGroupService) {
 
@@ -42,6 +50,22 @@ export class QuestionGroupListComponent implements OnInit {
     }
 
     onChange(question: any, questionvalues: any) {
+        this.questionData.questionId = question.ID;
+        this.questionData.questionName = question.Question;
+        this.questionData.questionValue = questionvalues;
+
+        if (this.profileDetails.length == 0) {
+
+            this.profileDetails.push(this.questionData);
+
+        }
+        else {
+
+            
+
+        }
+
+
         console.log(question);
         console.log(questionvalues);
     }

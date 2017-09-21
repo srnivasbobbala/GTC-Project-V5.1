@@ -14,7 +14,7 @@ var http_1 = require("@angular/http");
 var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
-var QuestionGroupService = /** @class */ (function () {
+var QuestionGroupService = (function () {
     function QuestionGroupService(_http) {
         this._http = _http;
     }

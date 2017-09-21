@@ -11,11 +11,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var QuestionGroupService_1 = require("./QuestionGroupService");
-var QuestionGroupListComponent = /** @class */ (function () {
+var QuestionGroupListComponent = (function () {
     function QuestionGroupListComponent(_quetionGroupService) {
         this._quetionGroupService = _quetionGroupService;
         this.groupCategory = "";
         this.statusMessage = "Loading Data";
+        this.profileDetails = [];
+        this.questionData = {
+            questionId: 0,
+            questionName: "",
+            questionValue: ""
+        };
     }
     QuestionGroupListComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -37,6 +43,14 @@ var QuestionGroupListComponent = /** @class */ (function () {
         console.log(questionvalues);
     };
     QuestionGroupListComponent.prototype.onChange = function (question, questionvalues) {
+        this.questionData.questionId = question.ID;
+        this.questionData.questionName = question.Question;
+        this.questionData.questionValue = questionvalues;
+        if (this.profileDetails.length == 0) {
+            this.profileDetails.push(this.questionData);
+        }
+        else {
+        }
         console.log(question);
         console.log(questionvalues);
     };
