@@ -32,6 +32,14 @@ var QuestionGroupListComponent = /** @class */ (function () {
             console.log(_this.statusMessage);
         });
     };
+    QuestionGroupListComponent.prototype.onDropDownChange = function (question, questionvalues) {
+        console.log(question);
+        console.log(questionvalues);
+    };
+    QuestionGroupListComponent.prototype.onChange = function (question, questionvalues) {
+        console.log(question);
+        console.log(questionvalues);
+    };
     QuestionGroupListComponent = __decorate([
         core_1.Component({
             selector: '<list-group>',

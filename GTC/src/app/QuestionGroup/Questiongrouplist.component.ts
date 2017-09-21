@@ -34,8 +34,16 @@ export class QuestionGroupListComponent implements OnInit {
                 this.statusMessage = "problem with service please try again after some time";
                 console.log(this.statusMessage);
             });
+    }
 
+    onDropDownChange(question: any, questionvalues: any) {
+        console.log(question);
+        console.log(questionvalues);
+    }
 
+    onChange(question: any, questionvalues: any) {
+        console.log(question);
+        console.log(questionvalues);
     }
 
 
