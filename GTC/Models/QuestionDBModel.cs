@@ -1,17 +1,19 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 
 namespace GTC.Models
 {
     public class QuestionDBModel
     {
-        private SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RemoteGTCDB"].ConnectionString);
-        //private SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalGTCDB"].ConnectionString);
+        //private SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RemoteGTCDB"].ConnectionString);
+        private SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalGTCDB"].ConnectionString);
 
         public Response GetGroups()
         {
@@ -132,6 +134,29 @@ namespace GTC.Models
                 return null;
             }
             return QuestionOptions;
+        }
+
+        public Response SaveQuestionAnswers(dynamic profileJsonData)
+        {
+            Response response = new Response();
+            string jsonTostring = Newtonsoft.Json.JsonConvert.SerializeObject(profileJsonData);
+            try
+            {
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "ODSInsertProfileDetails";
+                cmd.Parameters.AddWithValue("@ODSJsonText", jsonTostring);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                response.ResponseId = 1;
+                response.ResponseMessage = "Profile details Saved successfully";
+            }
+            catch (Exception e)
+            {
+                response.ResponseId = 0;
+                response.ResponseMessage = e.Message;
+            }
+                return response;
         }
     }
 }

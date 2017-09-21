@@ -33,6 +33,13 @@ namespace GTC.Controllers.api
             return Ok(db.QuestionByGroup(groupId));
         }
 
+        [HttpPost]
+        [Route("api/Question/SaveQuestionAnswers")]
+        public IHttpActionResult SaveQuestionAnswers(dynamic profileJsonData)
+        {
+            return Ok(db.SaveQuestionAnswers(profileJsonData));
+        }
+
 
     }
 }
