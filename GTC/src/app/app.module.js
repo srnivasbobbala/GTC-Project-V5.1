@@ -13,7 +13,7 @@ var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
 var Questiongrouplist_component_1 = require("./QuestionGroup/Questiongrouplist.component");
 var QuestionGroupService_1 = require("./QuestionGroup/QuestionGroupService");
-var AppModule = (function () {
+var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
