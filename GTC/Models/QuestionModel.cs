@@ -21,5 +21,7 @@ namespace GTC.Models
 
         public IList<QuestionOptionsModel> QuestionOptions { get; set; }
 
+        public string QuestionAnswer { get; set; }
+
     }
 }

@@ -51,8 +51,8 @@ export class QuestionGroupListComponent implements OnInit {
         if (this.profileDetails.length == 0 || hasQuestion == undefined)
             this.profileDetails.push({ questionId: question.ID, questionName: question.Question, questionValue: questionvalues });
         else {
-                let obj = this.profileDetails.find((o, i) => {
-                    if (o.questionId === question.ID) {
+            let obj = this.profileDetails.find((o, i) => {
+                if (o.questionId === question.ID) {
                     this.profileDetails[i].questionValue = questionvalues;
                     return true; // stop searching
                 }
@@ -60,4 +60,15 @@ export class QuestionGroupListComponent implements OnInit {
         }
         console.log(this.profileDetails);
     }
+
+    saveData(question: any) {
+
+        console.log("hi");
+
+        console.log(question);
+
+    }
+
+
+
 }

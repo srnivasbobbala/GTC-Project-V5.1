@@ -69,7 +69,7 @@
                         <div class="row" *ngFor="let question of questionDetails.Result">
                             <div class="form-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==1">
                                 <!--<label for="{{question.Question}}">{{question.Question}}</label>-->
-                                <input type="text" class="form-control" id="question{{question.ID}}" placeholder="{{question.Question}}" required=""  (focusout)="onChange(question,$event.target.value)">
+                                <input type="text" class="form-control" id="question{{question.ID}}" placeholder="{{question.Question}}" required="" [(ngModel)]="question.QuestionAnswer" name="questioName">
                             </div>
                             <div class="form-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==2">
 
@@ -89,7 +89,7 @@
                             <div class="form-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==5">
                                 <input type="checkbox" class="form-control" id="question{{question.ID}}" placeholder="{{question.Question}}" required="">
                             </div>
-                           
+
                             <div class="form-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==8 || question.QuestionType.ID==23">
                                 <select class="form-control" id="question{{question.ID}}" (change)="onDropDownChange(question,$event.target.value)">
                                     <option disabled selected> {{question.Question}} </option>
@@ -108,16 +108,17 @@
                                             <option disabled selected> {{question.Question}} </option>
                                             <option *ngFor="let QuestionOption of question.QuestionOptions">{{QuestionOption.Option}}</option>
                                         </select>
-                                    
+
                                 </div>
                             </div>-->
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="saveData(question)">Save Information</button>
+                        </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Save Information</button>
-                </div>
+
             </div>
 
         </div>
