@@ -18,13 +18,9 @@ export class QuestionGroupListComponent implements OnInit {
         questionId: 0,
         questionName: "",
         questionValue: ""
-
-
     };
 
     constructor(private _quetionGroupService: QuestionGroupService) {
-
-
     }
     ngOnInit() {
         this._quetionGroupService.getQuestionGroupList().subscribe((quegrpList) => { this.questionGroupList = quegrpList, console.log(this.questionGroupList.Result); },
@@ -35,7 +31,6 @@ export class QuestionGroupListComponent implements OnInit {
     }
 
     getGroupById(group: any) {
-
         this.groupCategory = group.Category;
         this._quetionGroupService.getQuestionDetailsById(group.ID).subscribe((data) => { this.questionDetails = data, console.log(this.questionDetails); },
             (error) => {
@@ -50,26 +45,19 @@ export class QuestionGroupListComponent implements OnInit {
     }
 
     onChange(question: any, questionvalues: any) {
-        this.questionData.questionId = question.ID;
-        this.questionData.questionName = question.Question;
-        this.questionData.questionValue = questionvalues;
 
-        if (this.profileDetails.length == 0) {
+        let hasQuestion = this.profileDetails.find(o => o.questionId === question.ID);
 
-            this.profileDetails.push(this.questionData);
-
-        }
+        if (this.profileDetails.length == 0 || hasQuestion == undefined)
+            this.profileDetails.push({ questionId: question.ID, questionName: question.Question, questionValue: questionvalues });
         else {
-
-            
-
+                let obj = this.profileDetails.find((o, i) => {
+                    if (o.questionId === question.ID) {
+                    this.profileDetails[i].questionValue = questionvalues;
+                    return true; // stop searching
+                }
+            });
         }
-
-
-        console.log(question);
-        console.log(questionvalues);
+        console.log(this.profileDetails);
     }
-
-
-
 }

@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var QuestionGroupService_1 = require("./QuestionGroupService");
-var QuestionGroupListComponent = (function () {
+var QuestionGroupListComponent = /** @class */ (function () {
     function QuestionGroupListComponent(_quetionGroupService) {
         this._quetionGroupService = _quetionGroupService;
         this.groupCategory = "";
@@ -43,16 +43,19 @@ var QuestionGroupListComponent = (function () {
         console.log(questionvalues);
     };
     QuestionGroupListComponent.prototype.onChange = function (question, questionvalues) {
-        this.questionData.questionId = question.ID;
-        this.questionData.questionName = question.Question;
-        this.questionData.questionValue = questionvalues;
-        if (this.profileDetails.length == 0) {
-            this.profileDetails.push(this.questionData);
-        }
+        var _this = this;
+        var hasQuestion = this.profileDetails.find(function (o) { return o.questionId === question.ID; });
+        if (this.profileDetails.length == 0 || hasQuestion == undefined)
+            this.profileDetails.push({ questionId: question.ID, questionName: question.Question, questionValue: questionvalues });
         else {
+            var obj = this.profileDetails.find(function (o, i) {
+                if (o.questionId === question.ID) {
+                    _this.profileDetails[i].questionValue = questionvalues;
+                    return true; // stop searching
+                }
+            });
         }
-        console.log(question);
-        console.log(questionvalues);
+        console.log(this.profileDetails);
     };
     QuestionGroupListComponent = __decorate([
         core_1.Component({
