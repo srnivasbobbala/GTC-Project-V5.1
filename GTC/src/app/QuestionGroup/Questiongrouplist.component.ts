@@ -64,7 +64,7 @@ export class QuestionGroupListComponent implements OnInit {
 
     saveData(questionsData: any) {
 
-        this._quetionGroupService.getQuestionDetailsById(questionsData).subscribe((data) => { this.qdata = data, console.log(this.qdata); },
+        this._quetionGroupService.saveQuestionData(questionsData).subscribe((data) => { this.qdata = data, console.log(this.qdata); },
             (error) => {
                 this.statusMessage = "problem with service please try again after some time";
                 console.log(this.statusMessage);
