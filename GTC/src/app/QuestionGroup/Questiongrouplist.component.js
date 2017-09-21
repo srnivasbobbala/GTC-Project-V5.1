@@ -11,12 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var QuestionGroupService_1 = require("./QuestionGroupService");
-var QuestionGroupListComponent = (function () {
+var QuestionGroupListComponent = /** @class */ (function () {
     function QuestionGroupListComponent(_quetionGroupService) {
         this._quetionGroupService = _quetionGroupService;
         this.groupCategory = "";
         this.statusMessage = "Loading Data";
-        this.qdata = "";
         this.profileDetails = [];
         this.questionData = {
             questionId: 0,
@@ -58,12 +57,9 @@ var QuestionGroupListComponent = (function () {
         }
         console.log(this.profileDetails);
     };
-    QuestionGroupListComponent.prototype.saveData = function (questionsData) {
-        var _this = this;
-        this._quetionGroupService.getQuestionDetailsById(questionsData).subscribe(function (data) { _this.qdata = data, console.log(_this.qdata); }, function (error) {
-            _this.statusMessage = "problem with service please try again after some time";
-            console.log(_this.statusMessage);
-        });
+    QuestionGroupListComponent.prototype.saveData = function (question) {
+        console.log("hi");
+        console.log(question);
     };
     QuestionGroupListComponent = __decorate([
         core_1.Component({
