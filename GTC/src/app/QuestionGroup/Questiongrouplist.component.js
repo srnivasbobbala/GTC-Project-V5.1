@@ -39,10 +39,10 @@ var QuestionGroupListComponent = (function () {
             console.log(_this.statusMessage);
         });
     };
-    QuestionGroupListComponent.prototype.onDropDownChange = function (question, questionvalues) {
-        console.log(question);
-        console.log(questionvalues);
-    };
+    //onDropDownChange(question: any, questionvalues: any) {
+    //    console.log(question);
+    //    console.log(questionvalues);
+    //}
     QuestionGroupListComponent.prototype.onChange = function (question, questionvalues) {
         var _this = this;
         var hasQuestion = this.profileDetails.find(function (o) { return o.questionId === question.ID; });

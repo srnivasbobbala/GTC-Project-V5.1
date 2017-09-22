@@ -91,9 +91,9 @@
                             </div>
 
                             <div class="form-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==8 || question.QuestionType.ID==23">
-                                <select class="form-control" id="question{{question.ID}}" (change)="onDropDownChange(question,$event.target.value)">
-                                    <option disabled selected> {{question.Question}} </option>
-                                    <option *ngFor="let QuestionOption of question.QuestionOptions">{{QuestionOption.Option}}</option>
+                                <select class="form-control" id="question{{question.ID}}" [(ngModel)]="question.QuestionAnswer" name="Quesion">
+                                    <option disabled selected [ngValue]="null"> {{question.Question}} </option>
+                                    <option *ngFor="let QuestionOption of question.QuestionOptions" [ngValue]="QuestionOption.Option">{{QuestionOption.Option}}</option>
                                 </select>
                             </div>
                             <!--<div class="form-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==23">

@@ -40,10 +40,10 @@ export class QuestionGroupListComponent implements OnInit {
             });
     }
 
-    onDropDownChange(question: any, questionvalues: any) {
-        console.log(question);
-        console.log(questionvalues);
-    }
+    //onDropDownChange(question: any, questionvalues: any) {
+    //    console.log(question);
+    //    console.log(questionvalues);
+    //}
 
     onChange(question: any, questionvalues: any) {
 
