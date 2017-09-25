@@ -211,13 +211,15 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\api\ProfileController.cs" />
     <Compile Include="Controllers\api\QuestionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\ProfileDetailsModel.cs" />
-    <Compile Include="Models\QuestionDBModel.cs" />
+    <Compile Include="Models\DBModel.cs" />
     <Compile Include="Models\QuestionCategoryModel.cs" />
     <Compile Include="Models\QuestionDetailsModel.cs" />
     <Compile Include="Models\QuestionModel.cs" />
@@ -255,6 +257,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Home\" />
+    <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\app\app.component.spec.ts" />
@@ -283,7 +286,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1934</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1934/</IISUrl>
+          <IISUrl>http://localhost:1999/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
