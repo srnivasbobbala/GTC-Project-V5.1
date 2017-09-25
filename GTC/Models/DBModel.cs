@@ -186,7 +186,7 @@ namespace GTC.Models
                 if(response.Result == null)
                 {
                     response.ResponseId = 0;
-                    response.ResponseMessage = "Login Success";
+                    response.ResponseMessage = "Login Failed";
                 }
 
             }
