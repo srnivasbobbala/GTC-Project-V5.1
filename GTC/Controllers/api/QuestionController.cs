@@ -10,7 +10,7 @@ namespace GTC.Controllers.api
 {
     public class QuestionController : ApiController
     {
-        private QuestionDBModel db = new QuestionDBModel();
+        private DBModel db = new DBModel();
 
         [HttpGet]
         [Route("api/Question/Group")]

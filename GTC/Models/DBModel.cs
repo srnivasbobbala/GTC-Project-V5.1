@@ -10,7 +10,7 @@ using System.Web.Script.Serialization;
 
 namespace GTC.Models
 {
-    public class QuestionDBModel
+    public class DBModel
     {
         //private SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RemoteGTCDB"].ConnectionString);
         private SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalGTCDB"].ConnectionString);
@@ -157,6 +157,45 @@ namespace GTC.Models
                 response.ResponseMessage = e.Message;
             }
                 return response;
+        }
+
+        public Response LoginUser(Profile loginDetails)
+        {
+            Response response = new Response();
+            try
+            {
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "ODSProfileLogin";
+                cmd.Parameters.AddWithValue("@ODSEmailID", loginDetails.EmailID);
+                cmd.Parameters.AddWithValue("@ODSPassword", loginDetails.Password);
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    loginDetails.Password = "";
+                    response.ResponseId = int.Parse(reader["ResponceCode"].ToString());
+                    if(response.ResponseId == 1)
+                    {
+                        loginDetails.Id = int.Parse(reader["ODSProfileID"].ToString());
+                        loginDetails.DisplayName = reader["ODSDisplayName"].ToString();
+                        response.Result = loginDetails;
+                        response.ResponseMessage = "Login Success";
+                    }
+                }
+                if(response.Result == null)
+                {
+                    response.ResponseId = 0;
+                    response.ResponseMessage = "Login Failed";
+                }
+
+            }
+            catch (Exception e)
+            {
+                response.ResponseId = 0;
+                response.ResponseMessage = e.Message;
+            }
+            return response;
         }
     }
 }
