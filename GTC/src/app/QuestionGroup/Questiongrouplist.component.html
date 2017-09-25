@@ -58,7 +58,7 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
+                    <button type="button" class="close" data-dismiss="modal" (click)="msgDisable()">
                         <img src="../../../Content/Images/close-circle.svg" />
                     </button>
                     <h4 class="modal-title">{{groupCategory}}</h4>
@@ -112,16 +112,25 @@
                                 </div>
                             </div>-->
                         </div>
-                        <div class="row">
+                        <div [hidden]="this.suceess==true" class="row">
                             <div class="form-group col-md-12 input-field-group" >
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 <button type="button" class="btn btn-primary" (click)="saveData(this.questionDetails.Result)">Save Information</button>
                             </div>
                         </div>
                     </form>
+                    
                 </div>
                 <div class="modal-footer">
-                    
+                    <div *ngIf="this.suceess==true" class="alert alert-success box-msg" role="alert">
+                        <strong>Your changes has been saved.</strong>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="msgDisable()">Close</button>
+                        <button type="button" class="btn btn-primary" (click)="LoadModule()">Go To Next Module</button>
+
+                    </div>
+                    <div *ngIf="this.fail==true" class="alert alert-warning box-msg" role="alert">
+                        <strong>Insertion has been failed.</strong>
+                    </div>
                 </div>
             </div>
 

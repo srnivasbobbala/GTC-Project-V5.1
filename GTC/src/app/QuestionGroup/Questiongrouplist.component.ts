@@ -13,7 +13,9 @@ export class QuestionGroupListComponent implements OnInit {
     groupCategory = "";
     statusMessage: string = "Loading Data";
     questionDetails: any;
-    qdata: any="";
+    qdata: any = "";
+    suceess: any = false;
+    fail: any = false;
     profileDetails: Array<any> = [];
     questionData = {
         questionId: 0,
@@ -64,16 +66,40 @@ export class QuestionGroupListComponent implements OnInit {
 
     saveData(questionsData: any) {
 
-        this._quetionGroupService.saveQuestionData(questionsData).subscribe((data) => { this.qdata = data, console.log(this.qdata); },
+        this._quetionGroupService.saveQuestionData(questionsData).subscribe((data) => {
+            this.qdata = data;
+
+            if (this.qdata.ResponseId == 1) {
+                this.suceess = true;
+                //setTimeout(function () {
+                //    this.suceess = false;
+                //}.bind(this), 3000);
+            }
+            else {
+
+                this.fail = true;
+                //setTimeout(function () {
+                //    this.fail = false;
+                //}.bind(this), 3000);
+            }
+
+
+        },
             (error) => {
                 this.statusMessage = "problem with service please try again after some time";
                 console.log(this.statusMessage);
             });
-
-        
-
     }
 
+    LoadModule() {
 
+        console.log("nextmodule");
+    }
+
+    msgDisable() {
+
+        this.suceess = false;
+        this.fail = false;
+    }
 
 }

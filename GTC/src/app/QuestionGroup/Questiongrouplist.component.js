@@ -11,12 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var QuestionGroupService_1 = require("./QuestionGroupService");
-var QuestionGroupListComponent = /** @class */ (function () {
+var QuestionGroupListComponent = (function () {
     function QuestionGroupListComponent(_quetionGroupService) {
         this._quetionGroupService = _quetionGroupService;
         this.groupCategory = "";
         this.statusMessage = "Loading Data";
         this.qdata = "";
+        this.suceess = false;
+        this.fail = false;
         this.profileDetails = [];
         this.questionData = {
             questionId: 0,
@@ -60,10 +62,31 @@ var QuestionGroupListComponent = /** @class */ (function () {
     };
     QuestionGroupListComponent.prototype.saveData = function (questionsData) {
         var _this = this;
-        this._quetionGroupService.saveQuestionData(questionsData).subscribe(function (data) { _this.qdata = data, console.log(_this.qdata); }, function (error) {
+        this._quetionGroupService.saveQuestionData(questionsData).subscribe(function (data) {
+            _this.qdata = data;
+            if (_this.qdata.ResponseId == 1) {
+                _this.suceess = true;
+                //setTimeout(function () {
+                //    this.suceess = false;
+                //}.bind(this), 3000);
+            }
+            else {
+                _this.fail = true;
+                //setTimeout(function () {
+                //    this.fail = false;
+                //}.bind(this), 3000);
+            }
+        }, function (error) {
             _this.statusMessage = "problem with service please try again after some time";
             console.log(_this.statusMessage);
         });
+    };
+    QuestionGroupListComponent.prototype.LoadModule = function () {
+        console.log("nextmodule");
+    };
+    QuestionGroupListComponent.prototype.msgDisable = function () {
+        this.suceess = false;
+        this.fail = false;
     };
     QuestionGroupListComponent = __decorate([
         core_1.Component({
