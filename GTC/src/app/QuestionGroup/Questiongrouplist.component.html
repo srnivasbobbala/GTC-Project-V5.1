@@ -58,14 +58,14 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" (click)="msgDisable()">
+                    <button type="button" class="close" data-dismiss="modal" (click)="resetStatus()">
                         <img src="../../../Content/Images/close-circle.svg" />
                     </button>
                     <h4 class="modal-title">{{groupCategory}}</h4>
                 </div>
                 <div class="modal-body">
 
-                    <form class="form col-md-6 center-column" *ngIf="questionDetails">
+                    <form class="form col-md-6 center-column" *ngIf="questionDetails && this.suceess!=true">
                         <div class="row" *ngFor="let question of questionDetails.Result">
                             <div class="form-group col-md-12 input-field-group" *ngIf="question.QuestionType.ID==1">
                                 <!--<label for="{{question.Question}}">{{question.Question}}</label>-->
@@ -124,8 +124,8 @@
                 <div class="modal-footer">
                     <div *ngIf="this.suceess==true" class="alert alert-success box-msg" role="alert">
                         <strong>Your changes has been saved.</strong>
-                        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="msgDisable()">Close</button>
-                        <button type="button" class="btn btn-primary" (click)="LoadModule()">Go To Next Module</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" (click)="LoadModule(this.currentGrpCategory)">Go To Next Module</button>
 
                     </div>
                     <div *ngIf="this.fail==true" class="alert alert-warning box-msg" role="alert">

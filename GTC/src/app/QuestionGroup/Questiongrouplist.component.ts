@@ -11,6 +11,7 @@ export class QuestionGroupListComponent implements OnInit {
 
     questionGroupList: any;
     groupCategory = "";
+    currentGrpCategory = 0;
     statusMessage: string = "Loading Data";
     questionDetails: any;
     qdata: any = "";
@@ -34,7 +35,9 @@ export class QuestionGroupListComponent implements OnInit {
     }
 
     getGroupById(group: any) {
+        this.resetStatus();
         this.groupCategory = group.Category;
+        this.currentGrpCategory = group.ID;
         this._quetionGroupService.getQuestionDetailsById(group.ID).subscribe((data) => { this.questionDetails = data, console.log(this.questionDetails); },
             (error) => {
                 this.statusMessage = "problem with service please try again after some time";
@@ -48,9 +51,7 @@ export class QuestionGroupListComponent implements OnInit {
     //}
 
     onChange(question: any, questionvalues: any) {
-
         let hasQuestion = this.profileDetails.find(o => o.questionId === question.ID);
-
         if (this.profileDetails.length == 0 || hasQuestion == undefined)
             this.profileDetails.push({ questionId: question.ID, questionName: question.Question, questionValue: questionvalues });
         else {
@@ -65,10 +66,8 @@ export class QuestionGroupListComponent implements OnInit {
     }
 
     saveData(questionsData: any) {
-
         this._quetionGroupService.saveQuestionData(questionsData).subscribe((data) => {
             this.qdata = data;
-
             if (this.qdata.ResponseId == 1) {
                 this.suceess = true;
                 //setTimeout(function () {
@@ -76,14 +75,11 @@ export class QuestionGroupListComponent implements OnInit {
                 //}.bind(this), 3000);
             }
             else {
-
                 this.fail = true;
                 //setTimeout(function () {
                 //    this.fail = false;
                 //}.bind(this), 3000);
             }
-
-
         },
             (error) => {
                 this.statusMessage = "problem with service please try again after some time";
@@ -91,13 +87,19 @@ export class QuestionGroupListComponent implements OnInit {
             });
     }
 
-    LoadModule() {
-
-        console.log("nextmodule");
+    LoadModule(currentGrpCategory: any) {
+        let GroupList = this.questionGroupList.Result;
+        let curIndex = 0;
+        let obj = GroupList.find((o: any, i: any) => {
+            if (o.ID === currentGrpCategory) {
+                curIndex = i;
+                return true; // stop searching
+            }
+        });
+        this.getGroupById(GroupList[curIndex+1]);
     }
 
-    msgDisable() {
-
+    resetStatus() {
         this.suceess = false;
         this.fail = false;
     }

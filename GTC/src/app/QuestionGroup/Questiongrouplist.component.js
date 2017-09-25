@@ -11,10 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var QuestionGroupService_1 = require("./QuestionGroupService");
-var QuestionGroupListComponent = (function () {
+var QuestionGroupListComponent = /** @class */ (function () {
     function QuestionGroupListComponent(_quetionGroupService) {
         this._quetionGroupService = _quetionGroupService;
         this.groupCategory = "";
+        this.currentGrpCategory = 0;
         this.statusMessage = "Loading Data";
         this.qdata = "";
         this.suceess = false;
@@ -35,7 +36,9 @@ var QuestionGroupListComponent = (function () {
     };
     QuestionGroupListComponent.prototype.getGroupById = function (group) {
         var _this = this;
+        this.resetStatus();
         this.groupCategory = group.Category;
+        this.currentGrpCategory = group.ID;
         this._quetionGroupService.getQuestionDetailsById(group.ID).subscribe(function (data) { _this.questionDetails = data, console.log(_this.questionDetails); }, function (error) {
             _this.statusMessage = "problem with service please try again after some time";
             console.log(_this.statusMessage);
@@ -81,10 +84,18 @@ var QuestionGroupListComponent = (function () {
             console.log(_this.statusMessage);
         });
     };
-    QuestionGroupListComponent.prototype.LoadModule = function () {
-        console.log("nextmodule");
+    QuestionGroupListComponent.prototype.LoadModule = function (currentGrpCategory) {
+        var GroupList = this.questionGroupList.Result;
+        var curIndex = 0;
+        var obj = GroupList.find(function (o, i) {
+            if (o.ID === currentGrpCategory) {
+                curIndex = i;
+                return true; // stop searching
+            }
+        });
+        this.getGroupById(GroupList[curIndex + 1]);
     };
-    QuestionGroupListComponent.prototype.msgDisable = function () {
+    QuestionGroupListComponent.prototype.resetStatus = function () {
         this.suceess = false;
         this.fail = false;
     };
