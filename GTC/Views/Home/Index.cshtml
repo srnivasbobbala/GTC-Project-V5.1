@@ -1,0 +1,94 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link href="../Content/Styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/Styles/custom.css" rel="stylesheet" />
+</head>
+<body>
+    <!--Nav Start-->
+    <div class="top-nav">
+        <section class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"> <img class="logo" alt="Brand" src="../Content/Images/GTC_logo_BIG2@2X.png"> </a>
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <!--Nav end-->
+    <div id="app-content" style="margin-top:120px;">
+        <div class="container-fluid ">
+            <div class="row">
+                <div class="col-sm-12" style="margin:auto;">
+                    <div class="container col-sm-3">
+                    </div>
+                    <div class="container col-sm-6" style="">
+                        <div class="Login-Form">
+                            <header>
+                                <h3><b>Log in</b></h3>
+                                <p id="domain-url"></p>
+                            </header>
+                            <div class="form-login">
+                                <div class="form-group">
+                                    <label for="usrname"><span class="glyphicon glyphicon-user"></span> Email Id</label>
+                                    <input type="text" class="form-control" id="usrname" placeholder="Enter Email" />
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                                    <input type="password" class="form-control" id="psw" placeholder="Enter password" />
+                                </div>
+                                <div class="form-group margin-B-0 loginUser-div" style="max-height:40px !important">
+                                    <button id="loginUser" class="btn btn-primary btn-block ladda-button" (click)="signIn()" style="width:100% !important;float:right" data-style="zoom-in">
+                                        <div class="loginmsgs">
+
+                                            <div class="loginPreloader loaderIcon" style="display:none;float:left;margin-left:4px;width:10%;">
+
+                                            </div>
+                                            <div class="displaymsg"><span class="ladda-label " id="success-msg">Login</span></div>
+                                        </div>
+                                    </button><br />
+
+                                </div>
+                                <div class="checkbox" style="margin-top:25px">
+                                </div>
+                                <router-outlet> </router-outlet>
+
+                                <div class="alert alert-danger alert-dismissable" id="fail-msg-div" style="display:none;text-align:center;">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <span id="fail-msg"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-helper">
+                                <a href="#">Create a new Account ?</a>
+                                <a href="#" style="margin-left:10px;float:right;"> Forgot Password ?</a>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Script Links-->
+    <script src="../Content/Script/jquery-3.2.1.min.js"></script>
+    <script src="../../../Content/Script/bootstrap.min.js"></script>
+    <script src="~/Content/Script/Login.js"></script>
+</body>
+</html>

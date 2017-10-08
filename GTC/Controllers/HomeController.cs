@@ -11,6 +11,11 @@ namespace GTC.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            return View();
+        }
+
+        public ActionResult AngularJs()
+        {
             return Redirect(Url.Content("~/src/index.html"));
         }
     }
